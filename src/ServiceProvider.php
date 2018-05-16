@@ -28,14 +28,12 @@ class ServiceProvider extends LaravelServiceProvider
             __DIR__ . '/../resources/config/taggable.php' => config_path('taggable.php'),
         ], 'config');
 
-        if (!class_exists('CreateTaggableTable')) {
-            // Publish the migration
-            $src = __DIR__ . '/../resources/database/migrations/2017_01_17_000000_create_taggable_table.php';
+        // Publish the migration
+        $src = __DIR__ . '/../resources/database/migrations/2017_01_17_000000_create_taggable_table.php';
 
-            $this->publishes([
-                $src => database_path('/migrations'),
-            ], 'migrations');
-        }
+        $this->publishes([
+            $src => database_path('/migrations'),
+        ], 'migrations');
     }
 
     /**
